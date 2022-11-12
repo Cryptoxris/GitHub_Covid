@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        build(job: 'covid', quietPeriod: 10, wait: true)
+        build(job: 'GitHub_Covid', quietPeriod: 10, wait: true)
       }
     }
 
