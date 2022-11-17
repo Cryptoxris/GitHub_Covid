@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
     postgresql_database:
         container_name: postgresql_database
