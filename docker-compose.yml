@@ -2,7 +2,8 @@ version: '3.5'
 
 services:
     covidselfassessment:
-        container_name: covidselfassessment:latest
+        image: covidselfassessment:latest
+        container_name: covidselfassessment
         ports:
             - "5000:5000"
         restart: always
