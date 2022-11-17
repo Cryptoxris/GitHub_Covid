@@ -34,7 +34,7 @@ services:
       - postgresql_database
     env_file: 
       - .env.docker
-    environment: ~
+    environment:
     image: covidselfassessment
     restart: "no"
 
