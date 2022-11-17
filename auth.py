@@ -108,6 +108,27 @@ def results():
     connection = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
 
     cur = connection.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cur.execute("""CREATE OR REPLACE VIEW public.questionnairesummary
+ AS
+ SELECT "Questionnaire".datetime,
+    "Employee".site,
+    "Employee".firstname,
+    "Employee".lastname,
+    "Employee".email,
+    "Questionnaire".incontact,
+    "Questionnaire".temperature,
+    "Questionnaire".fever,
+    "Questionnaire".drycough,
+    "Questionnaire".sorethroat,
+    "Questionnaire".feverdrycough,
+    "Questionnaire".feversorethroat,
+    "Questionnaire".drycoughsorethroat,
+    "Questionnaire".difficultyinbreathing
+   FROM "Employee"
+     JOIN "Questionnaire" ON "Questionnaire".employee_id = "Employee".id;
+
+ALTER TABLE public.questionnairesummary
+    OWNER TO admin;""")
     cur.execute('SELECT * FROM public.questionnairesummary ORDER BY datetime DESC LIMIT 50')
     results = (cur.fetchall())
     cur.close()
