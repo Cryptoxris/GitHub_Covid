@@ -27,16 +27,16 @@ services:
             - pgadmin:/root/.pgadmin
 
     migrations: 
-    restart: "no"
-    image: covidselfassessment
-    environment:
-        WAIT_HOSTS: postgresql_database:5432
-    command: sh -c "/wait && alembic upgrade head"
-    depends_on: 
-      - covidselfassessment
-      - postgresql_database
-    env_file: 
-      - .env.docker
+        restart: "no"
+        image: covidselfassessment
+        environment:
+            WAIT_HOSTS: postgresql_database:5432
+        command: sh -c "/wait && alembic upgrade head"
+        depends_on: 
+            - covidselfassessment
+            - postgresql_database
+        env_file: 
+            - .env.docker
     
     
 
