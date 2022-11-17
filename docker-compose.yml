@@ -28,7 +28,7 @@ services:
 
     migrations: 
     WAIT_HOSTS: "postgresql_database:5432"
-    command: "sh -c \"/wait && alembic upgrade head\""
+    command: 'sh -c \"/wait && alembic upgrade head\"'
     depends_on: 
       - covidselfassessment
       - postgresql_database
