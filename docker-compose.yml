@@ -25,28 +25,6 @@ services:
         restart: always
         volumes:
             - pgadmin:/root/.pgadmin
-    portainer:
-        image: portainer/portainer
-        container_name: Portainer
-        environment:
-            - PUID=1000
-            - PGID=1000
-            - TZ=Africa/Johannesburg
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-            - /home/portainer/docker/portainer:/data
-        ports:
-            - 9000:9000
-        restart: unless-stopped
-
-    covid:
-        build:
-            context: ./
-            dockerfile: Dockerfile
-        container_name: covidselfassessment
-        ports:
-            - "5000:5000"
-        restart: always
 
 volumes:
     database-data:
