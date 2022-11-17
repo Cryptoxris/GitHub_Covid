@@ -37,7 +37,7 @@ services:
         image: covidselfassessment:latest
         environment:
             WAIT_HOSTS: postgresql_database:5432
-        command: sh -c "alembic upgrade head"
+        command: sh -c "flask db upgrade"
         depends_on: 
             - covidselfassessment
             - postgresql_database
