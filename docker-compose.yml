@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
     covidselfassessment:
-        container_name: covidselfassessment
+        container_name: covidselfassessment:latest
         ports:
             - "5000:5000"
         restart: always
@@ -33,7 +33,7 @@ services:
 
     migrations: 
         restart: "no"
-        image: covidselfassessment
+        image: covidselfassessment:latest
         environment:
             WAIT_HOSTS: postgresql_database:5432
         command: sh -c "/wait && alembic upgrade head"
